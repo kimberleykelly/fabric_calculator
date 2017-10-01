@@ -57,3 +57,5 @@ typings/
 # dotenv environment variables file
 .env
 
+public/style.css
+public/app.js
