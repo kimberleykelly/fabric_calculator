@@ -1,3 +1,26 @@
 .heading {
-    color:peachpuff;
+    color: #2d1f1a; 
+    font-family: 'Lobster', cursive; 
+    padding: 20px;
+    text-align: center;
+}
+.question {
+    font-family: sans-serif;
+    font-size: 15px;
+    border-radius: 25px;
+    border: 2px solid #d79e2b;
+    padding: 20px; 
+}
+
+.calc {
+    color:#2d1f1a;
+    font-family:sans-serif; 
+    
+}
+.form-check-input{
+    display:inline-block;
+}
+
+.start {
+    padding:40px 0px 10px 0px;
 }
