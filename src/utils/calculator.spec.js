@@ -1,5 +1,5 @@
 const expect = require('chai').expect
-import calculate, { roundTape} from './calculator'
+import calculate, { roundTape, getFolds, romanBlindTape } from './calculator'
 
 const objToVals = obj => Object.keys(obj).map(key => obj[key])
 
@@ -78,6 +78,35 @@ describe('calculator', () => {
                 lining: '12.7',
                 tape: 7.5
             })
+        })
+        it('roman blinds', () => {
+            const vals = {
+                width: 54, 
+                length: 60, 
+                pattern: 7, 
+                tape: 'roman',
+                unit: 'inch',
+            }
+            const res = calculate(...objToVals(vals))
+            expect(res).to.be.eql({
+                fabric: '3.6',
+                lining: '3.6',
+                tape: 22.2,
+            })
+        })
+    })
+    describe('getFolds()', () => {
+        it('Should round to the nearst decimal once divided by 10', () => {
+            expect(getFolds(54)).to.equal(5)
+            expect(getFolds(56)).to.equal(6)
+            expect(getFolds(16)).to.equal(2)
+            expect(getFolds(15)).to.equal(2)
+            expect(getFolds(14)).to.equal(1)
+        })
+    })
+    describe('romanBlindTape', () => {
+        it('Should give blind tape in meters', () => {
+            expect(romanBlindTape(54, 60)).to.equal(870)
         })
     })
 })
